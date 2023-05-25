@@ -7,6 +7,7 @@
 package com.senac.projeto.Janelas;
 import com.senac.projeto.Função.ArrayLivros_Biblioteca;
 import com.senac.projeto.Informação.Livros;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -94,12 +95,19 @@ public class MostrarLivrosJDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if()
+
         int linha = jTable1.getSelectedRow();
         String livro = (String)jTable1.getModel().getValueAt(linha, 0);
         
-        Livros livroRemover = new Livos(livro,);
+        String título = (String)jTable1.getModel().getValueAt(linha, 0);
+        String autor = (String)jTable1.getModel().getValueAt(linha, 1);
+        String genero = (String)jTable1.getModel().getValueAt(linha, 2);              
+        Livros livroRemover = new Livros(título, autor, genero);
         AdicionarLivro.livros.remove(livroRemover);
+        JOptionPane.showMessageDialog(this, "Livro Excluído");
+        this.dispose();
+
+        
         
         
         
